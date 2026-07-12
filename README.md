@@ -5,6 +5,7 @@
 ## ファイル
 
 - `nightly_briefing_instruction.md` — 夜便生成の指示書本体（SPEC v5.2 の簡略版・GAS Claude API 呼び出し時の system prompt として使用）
+- `secretary_command_instruction.md` — 常駐秘書チャンネル解析指示書（つぶやきメール／実績相手からの受信メールを解析し、予定・ToDo・日程打診の登録可否をJSONで判定する。GAS `processYuiCommands()` / `detectMailAppointments()` が system prompt として使用）
 
 ## 参照経路
 
@@ -12,6 +13,7 @@ GAS は以下の raw URL から指示書を取得：
 
 ```
 https://raw.githubusercontent.com/ketaloh/yui-briefing-instructions/main/nightly_briefing_instruction.md
+https://raw.githubusercontent.com/ketaloh/yui-briefing-instructions/main/secretary_command_instruction.md
 ```
 
 `UrlFetchApp.fetch()` を使用（認証ヘッダ不要・Public リポジトリのため）。
