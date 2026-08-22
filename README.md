@@ -1,10 +1,11 @@
-# Yui Nightly Briefing Instructions
+# Yui Secretary Channel Instructions
 
-夜便（ナイトブリーフィング）生成指示書。GAS（Google Apps Script）から `raw.githubusercontent.com` 経由で参照される。
+常駐秘書チャンネル解析指示書。GAS（Google Apps Script）から `raw.githubusercontent.com` 経由で参照される。
+
+**2026-08-21 更新**：夜便（ナイトブリーフィング）は全面撤去済み。旧 `nightly_briefing_instruction.md`（夜便生成指示書）は本リポジトリから削除した。現在は秘書チャンネル指示書のみを管理する。
 
 ## ファイル
 
-- `nightly_briefing_instruction.md` — 夜便生成の指示書本体（SPEC v5.2 の簡略版・GAS Claude API 呼び出し時の system prompt として使用）
 - `secretary_command_instruction.md` — 常駐秘書チャンネル解析指示書（つぶやきメール／実績相手からの受信メールを解析し、予定・ToDo・日程打診の登録可否をJSONで判定する。GAS `processYuiCommands()` / `detectMailAppointments()` が system prompt として使用）
 
 ## 参照経路
@@ -12,7 +13,6 @@
 GAS は以下の raw URL から指示書を取得：
 
 ```
-https://raw.githubusercontent.com/ketaloh/yui-briefing-instructions/main/nightly_briefing_instruction.md
 https://raw.githubusercontent.com/ketaloh/yui-briefing-instructions/main/secretary_command_instruction.md
 ```
 
@@ -26,9 +26,8 @@ https://raw.githubusercontent.com/ketaloh/yui-briefing-instructions/main/secreta
 
 ## 更新運用
 
-指示書本体のマスターは `~/.claude/specs/nightly_briefing_instruction.md`（Private リポ側）。Public リポへの反映は手動コピー＋commit/push で行う。月1回程度の見直しタイミングで同期する。
+指示書の変更は本リポジトリで直接編集し、commit/push で反映する。
 
 ## 関連
 
-- 本家 SPEC: `~/.claude/specs/SPEC_yui_briefing.md` v5.2（Private 側・802行・詳細仕様）
-- 関連 RULE: `~/.claude/rules/RULE_GAS_AUTO_SEND.md` / `~/.claude/rules/RULE_SILENT_FAIL_DETECTION.md`
+- 関連 RULE: `~/.claude/rules/RULE_SILENT_FAIL_DETECTION.md`（自動配信運用の正本・§Z にGAS自動送信を統合）
